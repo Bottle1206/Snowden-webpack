@@ -1,6 +1,6 @@
 # Snowden-Webpack
 
-## vue-SPA模板，支持snowden-cli##
+## vue-SPA模板，用于支持snowden-cli
 
 >已载入vue, vuex, vue-router, vue-resource
 

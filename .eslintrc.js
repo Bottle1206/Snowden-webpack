@@ -1,4 +1,4 @@
 module.exports = {
-  extends: '@tbj/eslint-config-tbj'
+  "parser": "babel-eslint",
+  "extends": '@tbj/eslint-config-tbj'
 }
-

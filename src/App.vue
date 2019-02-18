@@ -11,7 +11,7 @@
 <script>
 import LeftBar from './components/leftBar';
 import BreadCrumb from './components/breadCrumb';
-import { getCookie } from './util/cookie';
+
 export default {
   name: 'App',
   data() {

@@ -1,9 +1,13 @@
 <template>
   <div class="my-breadcrumb">
     <el-breadcrumb separator="/">
-      <el-breadcrumb-item><ac-icon icon="appstore-fill" :size="14"/> 配置中心</el-breadcrumb-item>
-      <el-breadcrumb-item>{{$route.name}}</el-breadcrumb-item>
+      <el-breadcrumb-item
+        v-for="item in reRoutes"
+        :key="item.name"
+        :to="item.path || false"
+      ><ac-icon v-if="item.icon" :icon="item.icon" :size="14" /> {{item.name}}</el-breadcrumb-item>
     </el-breadcrumb>
+
     <div class="user-info">
       <span class="ac-m-r-10">
         <ac-icon icon="user" :size="14"/> {{userName}}
@@ -18,9 +22,25 @@
 <script> 
   import { delCookie } from '@/util/cookie.js';
   export default {
+    props: {
+      routes: {
+        type: Array,
+        default() {
+          return []
+        }
+      }
+    },
     computed: {
       userName() {
-        return 'Snowden'
+        return this.$store.state.userInfo.userName
+      },
+      reRoutes() {
+        return this.routes.map(item => {
+          if (typeof item === 'string') {
+            return { name: item }
+          }
+          return item
+        })
       }
     },
     methods: {
@@ -28,8 +48,9 @@
         this.$confirm('确认退出当前账户？', '提示', {
           type: 'warning'
         }).then(() => {
-          // 清除登录信息
-          
+          delCookie('ssosessionid')
+          // var url = window.location.href;
+          // window.location.href = `http://sso.sony.com/login?u=${url}`;
         })
       }
     }
@@ -38,12 +59,13 @@
 
 <style lang="stylus">
   .my-breadcrumb
-    height 34px
-    padding-bottom 20px
-    // padding 12px 16px
+    height 54px
+    padding 20px
     color rgba(0,0,0,.45)
     .el-breadcrumb
       float left
+      .el-breadcrumb__separator
+        margin 0 7px
     .iconfont
       color rgba(0,0,0,.35)
     .user-info

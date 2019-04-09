@@ -2,7 +2,6 @@
   <div id="app" :class="{'no-mac-os': !isMac}">
     <left-bar v-if="!isFull" />
     <div :class="containerClass">
-      <bread-crumb v-if="!isFull"/>
       <router-view />
     </div>
   </div>
@@ -10,7 +9,6 @@
 
 <script>
 import LeftBar from './components/leftBar';
-import BreadCrumb from './components/breadCrumb';
 
 export default {
   name: 'App',
@@ -20,22 +18,18 @@ export default {
     }
   },
   computed: {
-    path() {
-      return this.$route.path;
-    },
     isFull() {
-      return this.path === '/login'
+      return this.$route.path === '/login';
     },
     containerClass() {
-      return this.isFull ? 'full-container' : 'container';
+      return this.isFull ? 'full-container' : 'body-container';
     }
   },
   mounted() {
     this.isMac = /macintosh|mac os x/i.test(navigator.userAgent);
   },
   components: {
-    LeftBar,
-    BreadCrumb
+    LeftBar
   }
 }
 </script>
@@ -48,14 +42,12 @@ export default {
       position absolute
       left 0
       top 0
-    >.container
+    >.body-container
       position relative
       height 100%
       overflow auto
       margin-left 200px
       background-color #F0F2F5
-      padding 20px
-      
     >.full-container
       position relative
       height 100%

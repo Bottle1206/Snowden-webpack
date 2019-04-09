@@ -11,7 +11,9 @@ vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userInfo: {}
+    userInfo: {
+      userName: 'Snowden'
+    }
   },
   actions: {
     isLogin({ commit, state }, payload) {

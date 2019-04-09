@@ -106,10 +106,10 @@
         position absolute
         bottom -19px
         left 96px
-        width 180px
-        border-radius 20px
-        box-shadow 2px 8px 4px -4px rgba(41,137,235,.3), 2px 4px 4px 0 rgba(41,137,235,.14), 2px 4px 12px 0 rgba(41,137,235,.12)
-        padding 11px 20px          
+        width 180px !important
+        border-radius 20px !important
+        box-shadow 2px 8px 4px -4px rgba(41,137,235,.3), 2px 4px 4px 0 rgba(41,137,235,.14), 2px 4px 12px 0 rgba(41,137,235,.12) !important
+        padding 11px 20px !important   
       .head-info
         height 256px
         width 245px

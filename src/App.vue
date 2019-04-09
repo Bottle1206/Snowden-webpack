@@ -1,8 +1,8 @@
 <template>
   <div id="app" :class="{'no-mac-os': !isMac}">
-    <left-bar v-if="!isLogin" />
+    <left-bar v-if="!isFull" />
     <div :class="containerClass">
-      <bread-crumb v-if="!isLogin"/>
+      <bread-crumb v-if="!isFull"/>
       <router-view />
     </div>
   </div>
@@ -23,15 +23,15 @@ export default {
     path() {
       return this.$route.path;
     },
-    isLogin() {
+    isFull() {
       return this.path === '/login'
     },
     containerClass() {
-      return this.path === '/login' ? 'full-container' : 'container';
+      return this.isFull ? 'full-container' : 'container';
     }
   },
   mounted() {
-    this.isMac = /macintosh|mac os x/i.test(navigator.userAgent); 
+    this.isMac = /macintosh|mac os x/i.test(navigator.userAgent);
   },
   components: {
     LeftBar,
@@ -61,7 +61,7 @@ export default {
       height 100%
       
   /* important */
-  @media screen and (max-width: 1367px)
-    #app >.container
-      margin-left 185px
+  // @media screen and (max-width: 1367px)
+  //   #app >.container
+  //     margin-left 185px
 </style>

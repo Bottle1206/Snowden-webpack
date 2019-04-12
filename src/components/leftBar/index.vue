@@ -75,19 +75,18 @@
           color #FFF
         i
           color rgba(255,255,255,.7)
-
       .el-submenu .el-menu
         background-color: #000c17;
         box-shadow: inset 0 2px 8px rgba(0,0,0,.45)
 
   /* important */   
-  // @media screen and (max-width: 1367px)
-  //   .left-bar
-  //     .el-submenu__title
-  //       height 45px
-  //       line-height 44px
-  //     .el-submenu .el-menu-item
-  //       height 45px
-  //       line-height 45px
+  @media screen and (max-width: 1367px)
+    .left-bar .el-menu
+      .el-submenu__title
+        height 45px
+        line-height 44px
+      .el-submenu .el-menu-item
+        height 45px
+        line-height 45px
         
 </style>

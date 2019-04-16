@@ -11,7 +11,6 @@ const state = {
   name: ''
 }
 
-// actions
 const actions = {
   query ({ commit, state }, payload) {
     commit('updateState', { loading: true })

@@ -85,6 +85,8 @@
       .el-submenu__title
         height 45px
         line-height 44px
+        *
+          vertical-align baseline
       .el-submenu .el-menu-item
         height 45px
         line-height 45px
